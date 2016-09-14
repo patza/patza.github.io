@@ -1,0 +1,221 @@
+
+body {
+	padding: 0;
+	margin: 10px 0;
+	background: black;
+	/*text-align: center;*/
+}
+
+h2, h3 {
+	font: 400 130px/0.8 'Great Vibes', Helvetica, sans-serif;
+	/*font: normal 'Great Vibes', Helvetica, sans-serif;*/
+	font-size: 4em;
+	color: #fff;
+	line-height: 1.2em;
+  /*color: black;*/
+	text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+}
+
+h3 {
+	font-size: 2.5em;
+	line-height: 1em;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+     -moz-transition: -moz-transform 0.3s ease-out;
+       -o-transition: -o-transform 0.3s ease-out;
+          transition: transform 0.3s ease-out;
+}
+
+.modal.in .modal-dialog {
+
+}
+/* css */
+
+.title-image {
+	padding: 0;
+	margin:0;
+	float:left;
+	cursor: pointer;
+	
+	
+	/*opacity: .8;*/
+	/*display: block;*/
+}
+
+.title-image-square {
+	width: 160px;
+	height: 160px;
+}
+
+.title-image-rectangle {
+	width: 106px;
+	height: 320px;
+}
+
+.title-image-big-square {
+	background: blue;
+	width: 320px;
+	height: 320px;
+}
+
+.ti-parcours-small {
+	background: url('title-image-parcours-small.png');
+}
+
+.ti-canvats {
+	background: url('title-image-canvats.png');
+}
+
+.ti-oeuvres {
+	background: url('title-image-oeuvres.png');
+}
+
+.ti-spots {
+	background: url('title-image-spots.png');
+}
+
+.ti-philo {
+	background: url('title-image-philo.png');
+}
+
+.ti-iw1 {
+	background: url('title-image-ardisson.png');
+}
+
+.ti-iw2 {
+	background: url('title-image-mazoyer.png');
+}
+
+.ti-iw3 {
+	background: url('title-image-lopez.png');
+}
+
+.ti-contact {
+	display:block;
+	background: url('title-image-contact.png');
+}
+
+.ti-parcours {
+	display: block;
+	background: url('title-image-parcours.png');
+}
+.main-content {
+	width: 676px;
+	height: 676px;
+	padding: 5px;
+	
+	/*width: 686px;
+	height: 686px;
+	padding: 10px;
+*/
+	border: 2px solid white;
+	margin: 0 auto;
+	
+}
+
+.block-content {
+	width:330px;
+	height:330px;
+	padding: 0;
+	float:left;
+	padding: 5px;
+	position: relative;
+}
+
+.bc-1 {
+	border: 2px solid white;
+	border-width: 0 2px 2px 0;
+}
+
+.bc-2 {
+	border: 2px solid white;
+	border-width: 2px 0 0 2px;
+}
+
+.logo {
+	width: 676px;
+	height: 179px;
+	text-align: center;
+	margin: 0 auto 10px auto;
+	display: block;
+}
+
+.overlay {
+	background: black;
+	opacity: .5;
+	position: absolute;
+	
+	color: white;
+	z-index: 100;
+	
+}
+
+.overlay-big-square {
+	width: 320px;
+	height: 320px;	
+	top: 5px; left: 5px;
+}
+
+.overlay-square {
+	width: 160px;
+	height: 160px;
+}
+
+.overlay-rectangle {
+	width: 106px;
+	height: 320px;
+}
+
+.o-canvats {
+	top: 5px;
+	left: 5px;
+}
+
+.o-profil {
+	top: 5px;
+	left: 165px;
+}
+
+.o-image {
+	top: 165px;
+	left: 5px;
+}
+
+.o-philo {
+	top: 165px;
+	left: 165px;
+}
+
+.o-iw1 {
+	top : 5px;
+	left : 5px;
+}
+
+.o-iw2 {
+	top: 5px;
+	left: 111px;
+	/*padding-top: 150px;*/
+}
+
+.o-iw3 {
+	top: 5px;
+	left: 217px;
+	width: 107px;
+}
+
+.cc-hack {
+	width: 5px;
+}
+
+.philo-content p, .philo-content h4 {
+	padding: 5px;
+}
+
+.link-full-image {
+	display: block;
+	margin: 0 auto;
+	width : 200px;
+	text-align: center;
+}
