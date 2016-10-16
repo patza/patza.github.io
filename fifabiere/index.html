@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>FIFABIERE</title>
+
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background: green;	
+		}
+
+		.player {
+			width: 400px;
+			height: 200px;
+			border: 1px solid black;
+			cursor: pointer;
+		}
+
+		#player1 {
+			float : left;
+		}
+
+		#player2 {
+			float: right;
+		}
+
+		.penality {
+			float : left;
+			margin-right: 30px;
+		}
+
+		.red_card {
+			width: 50px;
+			height: 50px;
+			background: red;
+			cursor: pointer;
+		}
+
+		.yellow_card {
+			width: 50px;
+			height: 50px;
+			background: yellow;
+			cursor: pointer;
+		}
+
+		.goal {
+			width: 50px;
+			height: 50px;
+			background: blue;
+			cursor: pointer;
+		}				
+	</style>
+
+
+</head>
+
+<body>
+	<h1>FOOTBIERE</h1>
+	<button id="reset_game" onclick='reset_game()'>reset game</button>
+	<div class="player" id="player1">
+		<h2>Player #1</h2>
+		<h3>Score <span class="score">0</span></h3>
+		<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+		<div class="penality yellow_card">Carton Jaune</div>
+		<div class="penality goal">BUUT</div>
+	</div>
+
+	<div class="player" id="player2">
+		<h2>Player #2</h2>
+		<h3>Score <span class="score">0</span></h3>
+		<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+		<div class="penality yellow_card">Carton Jaune</div>
+		<div class="penality goal">BUUT</div>		
+	</div>
+	
+
+	<script>
+
+		function	reset_game() {
+			location.reload();
+		}
+
+		function	red_card(player) {
+			player.score += 3;
+			player.id.getElementsByClassName('score')[0].textContent = player.score;
+			player.red_cards += 1;
+			player.id.getElementsByClassName('count_red_cards')[0].textContent = player.red_cards;
+			if (player.red_cards == 5) {
+				alert('u loose ' + player.name + ' u bitch');
+				reset_game();
+			}			
+		}
+
+		function	yellow_card(player) {
+			player.score += 1;
+			player.id.getElementsByClassName('score')[0].textContent = player.score;			
+		}		
+
+		function	goal(player) {
+			player.score += 3;
+			player.id.getElementsByClassName('score')[0].textContent = player.score;			
+		}
+
+		var player2 = document.getElementById('player2');
+		
+		var player1 = {
+			id: document.getElementById('player1'),
+			name: 'player1',
+			score: 0,
+			red_cards: 0
+		};
+
+		var player2 = {
+			id: document.getElementById('player2'),
+			name: 'player2',
+			score: 0,
+			red_cards: 0
+		};		
+		
+		player1.id.getElementsByClassName('red_card')[0].onclick = function() {
+			red_card(player1);
+		};
+
+		player1.id.getElementsByClassName('yellow_card')[0].onclick = function() {
+			yellow_card(player1);
+		};
+
+		player1.id.getElementsByClassName('goal')[0].onclick = function() {
+			goal(player1);
+		};
+
+		player2.id.getElementsByClassName('red_card')[0].onclick = function() {
+			red_card(player2);
+		};
+
+		player2.id.getElementsByClassName('yellow_card')[0].onclick = function() {
+			yellow_card(player2);
+		};
+
+		player2.id.getElementsByClassName('goal')[0].onclick = function() {
+			goal(player2);
+		};		
+
+	</script>
+
+</body>
+
+</html>
