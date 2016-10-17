@@ -20,11 +20,11 @@
 			width: 40%;
 		}
 
-		.middle {
+		#options {
 			width: 20%;
 			min-height: 100%;
 			float:left;
-			background:pink;
+			background: pink;
 		}
 
 
@@ -76,64 +76,72 @@
 </head>
 
 <body>
-	<h1>FOOTBIERE</h1>
-	
-	<div class="player" id="player1">
+	<div id="content">
+		<h1>FOOTBIERE</h1>
 		
-		
-		
-		<h2 class="player_1_name">Player #1</h2>
-		<h3>Score <span class="score">0</span></h3>
-		<div class="penalities">
-			<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
-			<div class="penality yellow_card">Carton Jaune</div>
-			<div class="penality goal">BUUT</div>
+		<div class="player" id="player1">
+			
+			
+			
+			<h2 id="player_1_name">Joueur #1</h2>
+			<h3>Gorgées : <span class="score">0</span></h3>
+			<div class="penalities">
+				<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+				<div class="penality yellow_card">Carton Jaune</div>
+				<div class="penality goal">BUUT</div>
+			</div>
 		</div>
-	</div>
 
-	<div class="middle">
-		Set players's name : 
-		<form id="players_name">
-			player #1 : <input type="text" id="input_player_1_name" />
-			<br />
-			player #2 : <input type="text" id="input_player_2_name" />
-			<br />
-			<input type="submit" value="okidoki" />
-		</form>
-		<hr />
-		<button id="reset_game" onclick='reset_game()'>reset game</button>
-	</div>
-	<div class="player" id="player2">
-		<h2>Player #2</h2>
-		
-		<h3>Score <span class="score">0</span></h3>
-		
-		<div class="penalities">
-			<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
-			<div class="penality yellow_card">Carton Jaune</div>
-			<div class="penality goal">BUUT</div>
+		<div id="options">
+			<form id="players_name">
+				salut
+				<br />
+				Joueur #1 : <input type="text" id="input_player_1_name" />
+				<br />
+				Joueur #2 : <input type="text" id="input_player_2_name" />
+				<br />
+				<input type="submit" value="okidoki" />
+			</form>
+			<hr />
+			<button id="reset_game" onclick='reset_game()'>reset game</button>
+		</div>
+		<div class="player" id="player2">
+			<h2 id="player_2_name">Joueur #2</h2>
+			
+			<h3>Gorgées : <span class="score">0</span></h3>
+			
+			<div class="penalities">
+				<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+				<div class="penality yellow_card">Carton Jaune</div>
+				<div class="penality goal">BUUT</div>
+			</div>
 		</div>
 	</div>
 	
 
 	<script>
 
-		function	reset_game() {
+		function	resetGame() {
 			location.reload();
 		}
 
-		function	red_card(player) {
+		function	showLoser() {
+			content = document.getElementById('content');
+			content.innerHTML = "<img src='loser.jpg' />";
+		}
+
+		function	redCard(player) {
 			player.score += 3;
 			player.id.getElementsByClassName('score')[0].textContent = player.score;
-			player.red_cards += 1;
-			player.id.getElementsByClassName('count_red_cards')[0].textContent = player.red_cards;
-			if (player.red_cards == 5) {
-				alert('u loose ' + player.name + ' u bitch');
-				reset_game();
+			player.redCards += 1;
+			player.id.getElementsByClassName('count_red_cards')[0].textContent = player.redCards;
+			if (player.redCards == 5) {
+				showLoser();
+				// resetGame();
 			}			
 		}
 
-		function	yellow_card(player) {
+		function	yellowCard(player) {
 			player.score += 1;
 			player.id.getElementsByClassName('score')[0].textContent = player.score;			
 		}		
@@ -149,22 +157,22 @@
 			id: document.getElementById('player1'),
 			name: 'player1',
 			score: 0,
-			red_cards: 0
+			redCards: 0
 		};
 
 		var player2 = {
 			id: document.getElementById('player2'),
 			name: 'player2',
 			score: 0,
-			red_cards: 0
+			redCards: 0
 		};		
 		
 		player1.id.getElementsByClassName('red_card')[0].onclick = function() {
-			red_card(player1);
+			redCard(player1);
 		};
 
 		player1.id.getElementsByClassName('yellow_card')[0].onclick = function() {
-			yellow_card(player1);
+			yellowCard(player1);
 		};
 
 		player1.id.getElementsByClassName('goal')[0].onclick = function() {
@@ -172,16 +180,38 @@
 		};
 
 		player2.id.getElementsByClassName('red_card')[0].onclick = function() {
-			red_card(player2);
+			redCard(player2);
 		};
 
 		player2.id.getElementsByClassName('yellow_card')[0].onclick = function() {
-			yellow_card(player2);
+			yellowCard(player2);
 		};
 
 		player2.id.getElementsByClassName('goal')[0].onclick = function() {
 			goal(player2);
 		};		
+
+		function	setPlayersName() {
+			document.getElementById('player_1_name').textContent = playerOneName.value;
+			document.getElementById('player_2_name').textContent = playerTwoName.value;
+			player1.name = playerOneName.value;
+			player2.name = playerTwoName.value;
+		}
+
+		var formPlayersName = document.getElementById("players_name");
+		var playerOneName = document.getElementById("input_player_1_name");
+		var playerTwoName = document.getElementById("input_player_2_name");
+
+		formPlayersName.addEventListener("submit", function(e) {
+    	e.preventDefault();
+    	setPlayersName();
+    	formPlayersName.style.display = 'none';
+    	vsHtml = document.createElement('h3');
+    	vsHtml.innerHTML = 'VS';
+    	document.getElementById("options").insertBefore(vsHtml, formPlayersName);
+		});
+
+
 
 	</script>
 
