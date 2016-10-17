@@ -9,49 +9,67 @@
 		body {
 			padding: 0;
 			margin: 0;
-			background: green;	
+			text-align: center;
+			font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   		font-weight: 300;
+   		height: 100%;
+
 		}
 
 		.player {
-			width: 400px;
-			height: 200px;
-			border: 1px solid black;
-			cursor: pointer;
+			width: 40%;
 		}
+
+		.middle {
+			width: 20%;
+			min-height: 100%;
+			float:left;
+			background:pink;
+		}
+
 
 		#player1 {
 			float : left;
 		}
 
 		#player2 {
-			float: right;
+			float: left;
+		}
+
+		.penalities {
+			width: 310px;
+    	margin: 0 auto;
 		}
 
 		.penality {
 			float : left;
-			margin-right: 30px;
+			width: 70px;
+			height: 70px;	
+			cursor: pointer;		
 		}
 
 		.red_card {
-			width: 50px;
-			height: 50px;
 			background: red;
-			cursor: pointer;
+			padding-top: 10px;
+			height: 60px;
 		}
 
 		.yellow_card {
-			width: 50px;
-			height: 50px;
 			background: yellow;
-			cursor: pointer;
+			margin: 0 50px;
+			padding-top: 15px;
+			height: 55px;
 		}
 
 		.goal {
-			width: 50px;
-			height: 50px;
-			background: blue;
-			cursor: pointer;
-		}				
+			background: green;
+			padding-top: 25px;
+			height: 45px;
+		}
+
+		.count_red_cards {
+			font-weight: bold;
+		}
 	</style>
 
 
@@ -59,21 +77,42 @@
 
 <body>
 	<h1>FOOTBIERE</h1>
-	<button id="reset_game" onclick='reset_game()'>reset game</button>
+	
 	<div class="player" id="player1">
-		<h2>Player #1</h2>
+		
+		
+		
+		<h2 class="player_1_name">Player #1</h2>
 		<h3>Score <span class="score">0</span></h3>
-		<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
-		<div class="penality yellow_card">Carton Jaune</div>
-		<div class="penality goal">BUUT</div>
+		<div class="penalities">
+			<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+			<div class="penality yellow_card">Carton Jaune</div>
+			<div class="penality goal">BUUT</div>
+		</div>
 	</div>
 
+	<div class="middle">
+		Set players's name : 
+		<form id="players_name">
+			player #1 : <input type="text" id="input_player_1_name" />
+			<br />
+			player #2 : <input type="text" id="input_player_2_name" />
+			<br />
+			<input type="submit" value="okidoki" />
+		</form>
+		<hr />
+		<button id="reset_game" onclick='reset_game()'>reset game</button>
+	</div>
 	<div class="player" id="player2">
 		<h2>Player #2</h2>
+		
 		<h3>Score <span class="score">0</span></h3>
-		<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
-		<div class="penality yellow_card">Carton Jaune</div>
-		<div class="penality goal">BUUT</div>		
+		
+		<div class="penalities">
+			<div class="penality red_card">Carton Rouge<br /><span class="count_red_cards">0</span></div>
+			<div class="penality yellow_card">Carton Jaune</div>
+			<div class="penality goal">BUUT</div>
+		</div>
 	</div>
 	
 
